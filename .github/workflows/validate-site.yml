@@ -1,0 +1,56 @@
+name: Validate WORLDFORGE
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Validate JavaScript syntax
+        run: |
+          node --check app.js
+          node --check enhancement.js
+          node --check sw.js
+      - name: Validate manifest JSON
+        run: node -e "JSON.parse(require('fs').readFileSync('manifest.webmanifest','utf8')); console.log('Manifest JSON valid')"
+      - name: Validate page shell and local destinations
+        run: |
+          node <<'NODE'
+          const fs = require('fs');
+          const pages = ['index.html','mods.html','servers.html','gallery.html','games.html','community.html','progress.html'];
+          const errors = [];
+          for (const page of pages) {
+            const html = fs.readFileSync(page, 'utf8');
+            if (!html.includes('src="enhancement.js"')) errors.push(page + ': missing enhancement.js');
+            if (!html.includes('styles.css')) errors.push(page + ': missing styles.css');
+            if (!/<main\b/.test(html)) errors.push(page + ': missing main landmark');
+            if (!/<title>[^<]+<\/title>/.test(html)) errors.push(page + ': missing title');
+          }
+          const files = new Set([...pages, '404.html','styles.css','enhancement.css','app.js','enhancement.js','sw.js','manifest.webmanifest','sitemap.xml','robots.txt']);
+          for (const page of pages) {
+            const html = fs.readFileSync(page, 'utf8');
+            for (const match of html.matchAll(/\bhref=["']([^"'#?]+)["']/g)) {
+              const href = match[1];
+              if (/^(https?:|mailto:|tel:|data:)/i.test(href)) continue;
+              const target = href.replace(/^\.\//, '').split('#')[0];
+              if (target && !target.startsWith('assets/') && !files.has(target) && !fs.existsSync(target)) {
+                errors.push(page + ': missing local target ' + href);
+              }
+            }
+          }
+          if (errors.length) { console.error(errors.join('\n')); process.exit(1); }
+          console.log('Validated ' + pages.length + ' pages and local destinations.');
+          NODE
