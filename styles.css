@@ -359,3 +359,43 @@ img, video, canvas { max-width: 100%; }
   .section-head { flex-direction: column; align-items: stretch; }
   .section-counter, .data-badge, .demo-badge { align-self: flex-start; }
 }
+
+
+/* WORLDFORGE interaction polish: command palette, scroll chrome, and motion-safe reveals */
+html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+.reading-progress { position:fixed; z-index:1000; inset:0 auto auto 0; width:100%; height:3px; background:linear-gradient(90deg,#61e6c4,#6ac9ff); transform:scaleX(0); transform-origin:left center; pointer-events:none; box-shadow:0 0 14px #61e6c466; }
+[dir="rtl"] .reading-progress { transform-origin:right center; }
+.back-to-top { position:fixed; z-index:900; inset:auto 22px 22px auto; width:46px; height:46px; display:grid; place-items:center; border:1px solid #6be3c755; border-radius:14px; background:rgba(10,25,23,.92); color:#a5ffe7; font-size:1.25rem; box-shadow:0 10px 30px #0005; cursor:pointer; opacity:0; visibility:hidden; transform:translateY(8px); transition:opacity .2s,transform .2s,visibility .2s; backdrop-filter:blur(14px); }
+[dir="rtl"] .back-to-top { inset-inline-start:22px; inset-inline-end:auto; }
+.back-to-top.visible { opacity:1; visibility:visible; transform:translateY(0); }
+.reveal-on-scroll { opacity:0; transform:translateY(16px); transition:opacity .55s ease,transform .55s cubic-bezier(.2,.7,.2,1); transition-delay:var(--reveal-delay,0ms); }
+.reveal-on-scroll.is-visible { opacity:1; transform:translateY(0); }
+.command-overlay[hidden] { display:none !important; }
+.command-overlay { position:fixed; z-index:1200; inset:0; display:flex; align-items:flex-start; justify-content:center; padding: min(16vh,130px) 18px 24px; background:rgba(2,8,8,.76); backdrop-filter:blur(12px); }
+.command-dialog { width:min(620px,100%); overflow:hidden; border:1px solid #7ce6ce44; border-radius:20px; background:#0c1917; color:#e8f5f0; box-shadow:0 32px 100px #0009; }
+.command-heading { display:flex; align-items:center; justify-content:space-between; gap:12px; padding:18px 20px 14px; color:#a7c5bc; font-size:.72rem; letter-spacing:.09em; border-bottom:1px solid #ffffff12; }
+.command-close { width:32px; height:32px; border-radius:10px; border:1px solid #ffffff20; color:#e8f5f0; background:#ffffff08; font-size:1.3rem; cursor:pointer; }
+.command-input { display:block; width:calc(100% - 28px); margin:14px; padding:14px 15px; color:#f1fff9; background:#06100f; border:1px solid #6ce4c544; border-radius:12px; outline:none; font:inherit; }
+.command-input:focus { border-color:#69e4c3; box-shadow:0 0 0 3px #69e4c31c; }
+.command-results { padding:0 10px 10px; max-height:min(48vh,390px); overflow:auto; }
+.command-option { display:flex; justify-content:space-between; align-items:center; gap:16px; padding:12px 14px; border-radius:11px; color:inherit; text-decoration:none; }
+.command-option span { display:grid; gap:4px; }
+.command-option small { color:#88a69c; }
+.command-option kbd,.command-dialog footer kbd { padding:3px 7px; border:1px solid #ffffff20; border-radius:6px; color:#9cb9af; font-size:.68rem; }
+.command-option.active,.command-option:hover { background:#17352e; outline:1px solid #5be1bd35; }
+.command-empty { padding:16px; color:#a5bbb3; text-align:center; }
+.command-dialog footer { display:flex; gap:8px; align-items:center; padding:12px 18px; border-top:1px solid #ffffff12; color:#78988e; font-size:.7rem; }
+.command-dialog footer kbd { margin-inline-start:auto; }
+body.command-open { overflow:hidden; }
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible { outline:2px solid #70ebca !important; outline-offset:3px; }
+@media (max-width:640px) {
+ .back-to-top { inset-inline-start:14px; inset-inline-end:auto; bottom:14px; width:42px; height:42px; }
+ .command-overlay { padding-top:9vh; }
+ .command-dialog { border-radius:16px; }
+ .command-heading { padding:14px; font-size:.63rem; }
+}
+@media (prefers-reduced-motion:reduce) {
+ html { scroll-behavior:auto; }
+ *,*::before,*::after { animation-duration:.01ms !important; animation-iteration-count:1 !important; scroll-behavior:auto !important; transition-duration:.01ms !important; }
+ .reveal-on-scroll { opacity:1; transform:none; }
+}
