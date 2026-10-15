@@ -1,6 +1,6 @@
 /* Small, versioned offline shell. Navigation is network-first to avoid stale pages. */
-const CACHE = 'worldforge-shell-v1';
-const CORE = ['./', './index.html', './styles.css', './app.js', './enhancement.js', './manifest.webmanifest', './mods.html', './servers.html', './gallery.html', './games.html', './community.html', './progress.html', './assets/favicon.svg', './assets/worldforge-emblem.svg'];
+const CACHE = 'worldforge-shell-v2';
+const CORE = ['./', './index.html', './styles.css', './app.js', './enhancement.js', './enhancement.css', './manifest.webmanifest', './mods.html', './servers.html', './gallery.html', './games.html', './community.html', './progress.html', './assets/favicon.svg', './assets/worldforge-emblem.svg'];
 self.addEventListener('install', event => {
   event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(CORE)).then(() => self.skipWaiting()));
 });
