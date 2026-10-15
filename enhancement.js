@@ -79,7 +79,7 @@
   });
   document.addEventListener('keydown',e=>{
     if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k'){e.preventDefault();overlay.hidden?open():close()}
-    if(e.key==='/'&&!overlay.hidden===false&&!['INPUT','TEXTAREA'].includes(document.activeElement.tagName)){e.preventDefault();open()}
+    if(e.key==='/'&&overlay.hidden&&!['INPUT','TEXTAREA'].includes(document.activeElement.tagName)){e.preventDefault();open()}
   });
   render();
 
