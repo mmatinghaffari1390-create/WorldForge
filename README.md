@@ -1,29 +1,45 @@
-# WORLDFORGE — Front-end upgrade
+# WORLDFORGE — Minecraft Community Portal
 
-A responsive, Minecraft-inspired community portal prototype for discovering mods, browsing sample server listings, exploring build ideas, and playing a local crafting mini-game.
+A Persian/English, responsive Minecraft-inspired portal prototype with separate destination pages, a crafting mini-game, curated mod links, build inspiration, and locally saved player progress.
 
-## Included
-- `index.html` — complete page structure and separated portal panels.
-- `styles.css` — responsive design, pixel-inspired UI, transitions, hover states, particles, and theme variations.
-- `app.js` — Persian/English language toggle, mod/server/build filters, 100+ recipe index (including wood variants), free crafting and timed challenge, local XP/Coins/achievements/daily quest, sound toggle, and demo server listing form.
-- `assets/favicon.svg` — site icon.
+## Experience map
+
+- `index.html` — landing page and portal hub.
+- `mods.html` — searchable and filterable mod/resource directory.
+- `servers.html` — sample server listings and local-only listing request form.
+- `gallery.html` — build inspiration and category filters.
+- `games.html` — crafting workbench, recipe index, and timed challenge.
+- `community.html` — community feature preview.
+- `progress.html` — local XP, achievements, and player milestones.
+- `styles.css` — responsive design system, motion, focus states, and reduced-motion support.
+- `app.js` — core UI, language toggle, recipe/game logic, filters, and local persistence.
+- `enhancement.js` — keyboard command palette (Ctrl/Cmd+K), scroll progress, back-to-top control, and progressive reveal animations.
+- `manifest.webmanifest` and `sw.js` — install metadata and a small versioned offline shell for supported browsers.
+- `sitemap.xml` and `robots.txt` — basic crawl metadata.
+- `assets/` — site emblem and favicon.
+
+## Run locally
+
+Serve the repository root using any static HTTP server. Opening HTML directly with `file://` may disable service-worker features. GitHub Pages serves the project from its repository subpath, so internal asset and page URLs are intentionally relative.
 
 ## Publish on GitHub Pages
-1. Upload/replace `index.html`, `styles.css`, and `app.js` in the repository root.
-2. Upload the `assets` folder too (it contains `favicon.svg`).
-3. Keep the filenames exactly as shown, especially `index.html`.
-4. Wait for GitHub Pages to redeploy, then refresh the website.
 
-## Important limitations
-- This is a static front-end. Community chat is a visual preview and does not send messages.
-- Server cards are sample/demo listings, not live or verified server-status data.
-- The server submission form saves only to the current browser's local storage; it does not send requests to an administrator.
-- XP, coins, achievements, and leaderboard are local demo data and can be reset or edited by the visitor. They are not secure accounts or a global leaderboard.
-- Mod links lead to project pages; compatibility and current versions should be checked there. Some mod/resource-pack availability depends on Minecraft edition, version, and loader.
-- The recipe book includes 100+ indexed recipe entries with variants. As with any recipe catalogue, verify exact recipes against the Minecraft version you play; this static prototype is not an official Minecraft client or a Mojang/Microsoft product.
-- Google Fonts is used for the pixel title font and Persian font when an internet connection is available; fallback fonts remain defined.
+Publish the repository root. Keep all HTML, CSS, JavaScript, manifest, service worker, sitemap, robots file, and the `assets/` folder in their existing relative locations. After publishing changes, hard-refresh once if the browser has an older cached version.
 
-## Next step for real community features
-A backend, user authentication, database, moderation tools, and a real-time messaging service are required for real accounts, server submissions, verified server status, global leaderboards, and Discord-like live chat.
+## Honest scope and limitations
+
+- This is a static front-end prototype; it does not have a server-side database or authentication.
+- Community chat is a visual preview and does not send messages.
+- Server cards are sample listings, not live or verified server-status data. No server IP is invented.
+- The server submission form saves only in the current browser's local storage; it does not reach an administrator.
+- XP, coins, achievements, and progress are local demo data, not a secure account or global leaderboard.
+- Mod links lead to project pages. Check the Minecraft version and mod loader compatibility on each official project page.
+- The recipe index is a learning aid; verify exact recipes against the game version you play.
+- Fonts load from Google Fonts when available; fallback fonts are defined.
+- Offline behavior depends on browser service-worker support and a successful first online visit.
+
+## For a real production community
+
+Real accounts, moderated chat, verified server status, global leaderboards, and submissions require a backend, database, authentication, abuse controls, and server-side validation.
 
 Minecraft is a trademark of Mojang Studios/Microsoft. WORLDFORGE is an independent, unofficial fan project.
