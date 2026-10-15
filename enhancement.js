@@ -91,6 +91,8 @@
   });
   render();
 
+  if (!document.querySelector('link[data-enhancement-css]')) { const css=document.createElement('link'); css.rel='stylesheet'; css.href='enhancement.css'; css.dataset.enhancementCss='true'; document.head.append(css); }
+
   // Inject install metadata without requiring every HTML page to duplicate boilerplate.
   if (!document.querySelector('link[rel="manifest"]')) {
     const manifest=document.createElement('link'); manifest.rel='manifest'; manifest.href='manifest.webmanifest'; document.head.append(manifest);
