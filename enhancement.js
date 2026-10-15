@@ -6,7 +6,7 @@
 
   const skipLink = document.createElement('a');
   skipLink.className = 'skip-to-content';
-  skipLink.href = '#main';
+  skipLink.href = '#home';
   skipLink.textContent = 'Skip to main content / رفتن به محتوای اصلی';
   document.body.prepend(skipLink);
 
