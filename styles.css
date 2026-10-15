@@ -156,3 +156,27 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
 @media(max-width:760px){.topbar{height:72px}.brand-name{font-size:13px}.brand-name small{font-size:8px}.hero{grid-template-columns:1fr;padding-top:50px;padding-bottom:65px;gap:34px}.hero-copy{max-width:650px}.hero h1{font-size:clamp(36px,8vw,58px)}.hero-scene{height:clamp(280px,72vw,420px)}.section{padding-top:70px;padding-bottom:70px}.section-head h2{font-size:26px}.portal-card{min-height:260px;padding:18px}.portal-art{height:105px}}
 @media(max-width:480px){.wrap{width:90vw}.brand-mark{width:39px;height:39px}.brand-name{font-size:11px;letter-spacing:1px}.brand-name small{font-size:7px;letter-spacing:1px}.top-actions{gap:5px}.icon-btn{min-width:34px;height:36px}.hero{padding-top:35px}.hero h1{font-size:35px;letter-spacing:-1px;line-height:1.55}.hero-copy>p{font-size:13px}.hero-actions .btn{flex:1;justify-content:center;padding-inline:10px;font-size:12px}.hero-metrics{gap:17px}.hero-metrics strong{font-size:22px}.hero-metrics small{font-size:10px}.hero-scene{height:275px}.scene-top{top:14px;left:14px;right:14px;font-size:8px}.scene-bottom{padding:12px 14px}.scene-bottom strong{font-size:10px}.scene-bottom .pixel-label{font-size:8px}.section-head{display:block}.section-counter{display:inline-block;margin-top:10px}.portal-grid{grid-template-columns:1fr 1fr;gap:10px}.portal-card{min-height:245px;padding:14px}.portal-card h3{font-size:15px}.portal-card p{font-size:11px}.portal-art{height:85px}}
 @media(prefers-reduced-motion:reduce){.hero-copy{animation:none!important}.hero-scene,.portal-card,.mod-card,.server-card,.build-card{transition:none!important}}
+
+/* Modular portal UX — separate destinations, clear hierarchy, no crowded homepage */
+.hub-section{padding-top:clamp(72px,9vw,130px);padding-bottom:clamp(72px,9vw,130px)}
+.hub-section .section-head{align-items:end;margin-bottom:32px}
+.hub-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.hub-tile{position:relative;display:flex;flex-direction:column;align-items:flex-start;min-height:275px;padding:clamp(20px,2.5vw,32px);overflow:hidden;text-decoration:none;color:var(--text);background:linear-gradient(145deg,#101d2a,#0a121d 78%);border:1px solid #253b4d;border-radius:3px;isolation:isolate;transition:transform .25s,border-color .25s,background .25s,box-shadow .25s}
+.hub-tile:before{content:"";position:absolute;z-index:-1;inset:0;background:radial-gradient(ellipse at 100% 0%,#3fd8ed12,transparent 56%);opacity:.8;transition:opacity .25s}
+.hub-tile:after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:linear-gradient(90deg,transparent,#54e4f1,transparent);transform:scaleX(0);transition:transform .3s}
+.hub-tile:hover{transform:translateY(-4px);border-color:#4b9eaf;box-shadow:0 22px 50px #0004;background:linear-gradient(145deg,#142636,#0b1521 78%)}
+.hub-tile:hover:before{opacity:1}.hub-tile:hover:after{transform:scaleX(1)}
+.hub-index{position:absolute;top:22px;right:22px;color:#71889a;font:600 10px var(--body);letter-spacing:1.3px}
+.hub-symbol{display:grid;place-items:center;width:48px;height:48px;margin-bottom:30px;color:#8deef6;border:1px solid #2b5364;background:#102633;font-size:24px}
+.hub-kicker{font:600 9px var(--body);letter-spacing:1.8px;color:#66b8c9;margin-bottom:8px}
+.hub-tile h3{font:750 clamp(17px,1.7vw,21px)/1.7 var(--body);margin:0 0 6px;color:#f0f6fc}
+.hub-tile p{font:400 12px/2 var(--body);color:#96a8b8;margin:0 0 20px;max-width:32ch}
+.hub-enter{margin-top:auto;font:650 10px var(--body);letter-spacing:.4px;color:#a7eaf2}
+.hub-tile-featured{background:linear-gradient(140deg,#11303b,#0d1c29 70%);border-color:#37788a}
+.hub-tile-featured:before{background:radial-gradient(ellipse at 95% 5%,#48e5f325,transparent 58%)}
+.hub-tile-featured .hub-symbol{color:#d1fbff;background:#16404b;border-color:#397c8c;box-shadow:0 0 28px #4ee4f21b}
+.hub-feature-mark{position:absolute;bottom:25px;left:24px;color:#5e9aa8;font:600 8px var(--body);letter-spacing:1.5px;opacity:.75}
+#navLinks a{white-space:nowrap}
+@media(max-width:900px){.hub-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.hub-tile{min-height:250px}}
+@media(max-width:600px){.hub-grid{grid-template-columns:1fr;gap:10px}.hub-tile{min-height:205px;padding:20px}.hub-symbol{margin-bottom:19px;width:42px;height:42px}.hub-index{top:20px;right:20px}.hub-feature-mark{left:20px;bottom:22px}.hub-tile-featured{min-height:225px}}
+@media(prefers-reduced-motion:reduce){.hub-tile,.hub-tile:before,.hub-tile:after{transition:none}}
