@@ -4,6 +4,12 @@
   const $ = (s, root=document) => root.querySelector(s);
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  const skipLink = document.createElement('a');
+  skipLink.className = 'skip-to-content';
+  skipLink.href = '#main';
+  skipLink.textContent = 'Skip to main content / رفتن به محتوای اصلی';
+  document.body.prepend(skipLink);
+
   // Scroll progress + back-to-top control.
   const progress = document.createElement('div');
   progress.className = 'reading-progress';
