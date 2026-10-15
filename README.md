@@ -16,6 +16,7 @@ A Persian/English, responsive Minecraft-inspired portal prototype with separate 
 - `enhancement.js` — keyboard command palette (Ctrl/Cmd+K), scroll progress, back-to-top control, and progressive reveal animations.
 - `manifest.webmanifest` and `sw.js` — install metadata and a small versioned offline shell for supported browsers.
 - `sitemap.xml` and `robots.txt` — basic crawl metadata.
+- `.github/workflows/validate-site.yml` — automated JavaScript, manifest, page-shell, and local-link checks on pushes and pull requests.
 - `assets/` — site emblem and favicon.
 
 ## Run locally
