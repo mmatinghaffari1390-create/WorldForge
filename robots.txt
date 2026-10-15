@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mmatinghaffari1390-create.github.io/WorldForge/sitemap.xml
