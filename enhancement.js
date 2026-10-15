@@ -51,6 +51,13 @@
     ['Build gallery','گالری سازه‌ها','gallery.html'], ['Crafting lab','کارگاه کرفتینگ','games.html'],
     ['Community','جامعه','community.html'], ['Progress & badges','پیشرفت و نشان‌ها','progress.html']
   ];
+  const quickButton = document.createElement('button');
+  quickButton.className = 'quick-nav-trigger';
+  quickButton.type = 'button';
+  quickButton.setAttribute('aria-label', 'Quick navigation');
+  quickButton.title = 'Quick navigation · Ctrl/Cmd+K';
+  quickButton.innerHTML = '<span>⌘</span><small>GO TO</small>';
+  document.body.append(quickButton);
   const overlay = document.createElement('div');
   overlay.className = 'command-overlay';
   overlay.hidden = true;
@@ -68,6 +75,7 @@
   const open = () => { previousFocus=document.activeElement; overlay.hidden=false; document.body.classList.add('command-open'); input.value=''; render(); input.focus(); };
   const close = () => { overlay.hidden=true; document.body.classList.remove('command-open'); if(previousFocus && previousFocus.focus) previousFocus.focus(); };
   $('.command-close', overlay).addEventListener('click', close);
+  quickButton.addEventListener('click', open);
   overlay.addEventListener('click', e=>{if(e.target===overlay)close()});
   input.addEventListener('input',()=>{active=0;render()});
   input.addEventListener('keydown',e=>{
