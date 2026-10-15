@@ -271,3 +271,91 @@ body[data-view] main > section[id] .section-head{padding-bottom:20px;border-bott
 @media(max-width:900px){.topbar{gap:12px}.hero{padding-top:50px}.hub-tile{min-height:215px}}
 @media(max-width:640px){.topbar{height:70px}.brand-name{font-size:9px}.brand-name small{font-size:6px}.hero{padding-block:42px}.hero-metrics{gap:18px}.hub-tile{min-height:unset;padding:20px}.section-head{align-items:flex-start}.callout-line{flex-wrap:wrap}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
+
+
+/* WORLDFORGE route polish: clear page identity, keyboard access, and responsive navigation */
+.nav-links a[aria-current="page"],
+body[data-view="mods"] .nav-links a[href="mods.html"],
+body[data-view="servers"] .nav-links a[href="servers.html"],
+body[data-view="builds"] .nav-links a[href="gallery.html"],
+body[data-view="craft"] .nav-links a[href="games.html"],
+body[data-view="community"] .nav-links a[href="community.html"],
+body[data-view="progress"] .nav-links a[href="progress.html"] {
+  color: var(--green);
+  position: relative;
+}
+body[data-view] .nav-links a[aria-current="page"]::after,
+body[data-view="mods"] .nav-links a[href="mods.html"]::after,
+body[data-view="servers"] .nav-links a[href="servers.html"]::after,
+body[data-view="builds"] .nav-links a[href="gallery.html"]::after,
+body[data-view="craft"] .nav-links a[href="games.html"]::after,
+body[data-view="community"] .nav-links a[href="community.html"]::after,
+body[data-view="progress"] .nav-links a[href="progress.html"]::after {
+  content: "";
+  position: absolute;
+  height: 2px;
+  left: 0;
+  right: 0;
+  bottom: -10px;
+  border-radius: 2px;
+  background: var(--green);
+  box-shadow: 0 0 12px #66e3d044;
+}
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline: 2px solid #83f2de !important;
+  outline-offset: 3px;
+}
+body[data-view] main > section[id] {
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+}
+body[data-view] main > section[id]::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  right: 0;
+  width: min(46vw, 560px);
+  height: 360px;
+  pointer-events: none;
+  opacity: .58;
+  background: radial-gradient(ellipse at top right, #31b9bd12, transparent 70%);
+}
+body[data-view="mods"] main > section#mods::before { background: radial-gradient(ellipse at top right, #74d69d1c, transparent 70%); }
+body[data-view="servers"] main > section#servers::before { background: radial-gradient(ellipse at top right, #4dbce51c, transparent 70%); }
+body[data-view="builds"] main > section#builds::before { background: radial-gradient(ellipse at top right, #b6a0ff1c, transparent 70%); }
+body[data-view="craft"] main > section#craft::before { background: radial-gradient(ellipse at top right, #f2c56c1b, transparent 70%); }
+body[data-view="community"] main > section#community::before { background: radial-gradient(ellipse at top right, #66e3d01c, transparent 70%); }
+body[data-view="progress"] main > section#progress::before { background: radial-gradient(ellipse at top right, #f59cbb1a, transparent 70%); }
+body[data-view] main > section[id] .section-head h2 { text-wrap: balance; }
+body[data-view] main > section[id] .section-head p { max-width: 68ch; }
+.hub-tile, .mod-card, .server-card, .build-card, .progress-card, .recipe-card { min-width: 0; }
+img, video, canvas { max-width: 100%; }
+@media (max-width: 1050px) {
+  .online-chip { display: none; }
+  .nav-links { gap: 12px; }
+  .brand-name { font-size: 9px; }
+  .brand-name small { font-size: 6px; }
+}
+@media (max-width: 760px) {
+  .topbar { padding-inline: 4vw; }
+  .nav-links { gap: 10px; overflow-x: auto; max-width: 52vw; scrollbar-width: none; }
+  .nav-links::-webkit-scrollbar { display: none; }
+  .nav-links a { font-size: 11px; }
+  .top-actions { gap: 5px; }
+  .icon-btn { min-width: 34px; height: 34px; }
+  body[data-view] main > section[id] { min-height: 70vh; }
+}
+@media (max-width: 520px) {
+  .topbar { gap: 8px; }
+  .brand { gap: 6px; }
+  .brand-mark { width: 34px; height: 34px; }
+  .brand-name { font-size: 7px; }
+  .brand-name small { display: none; }
+  .nav-links { max-width: 43vw; gap: 12px; }
+  .nav-links a { font-size: 10px; }
+  #soundToggle, #skinToggle { display: none; }
+  .section-head { flex-direction: column; align-items: stretch; }
+  .section-counter, .data-badge, .demo-badge { align-self: flex-start; }
+}
