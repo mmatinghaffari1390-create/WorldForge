@@ -1,0 +1,24 @@
+{
+  "name": "WORLDFORGE — Minecraft Community Hub",
+  "short_name": "WORLDFORGE",
+  "description": "Discover Minecraft mods, servers, builds and crafting recipes.",
+  "lang": "fa",
+  "dir": "rtl",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#07110f",
+  "theme_color": "#0b1715",
+  "categories": [
+    "games",
+    "entertainment"
+  ],
+  "icons": [
+    {
+      "src": "assets/worldforge-emblem.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
