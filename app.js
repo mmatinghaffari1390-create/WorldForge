@@ -17,4 +17,5 @@
  portalSearch?.addEventListener('input',filterPortals);
  const originalSetLang=setLang;
  setLang=(next)=>{originalSetLang(next);updateSearchPlaceholder();filterPortals()};
+ updateSearchPlaceholder();filterPortals();
 })();
