@@ -11,7 +11,7 @@
  const links=$$('.primary-nav a,.mobile-dock a');const current=location.pathname.split('/').pop()||'index.html';links.forEach(a=>{if(a.getAttribute('href')===current){a.classList.add('active','dock-active');a.setAttribute('aria-current','page')}});
  const reveal=$('.portal,.feature-copy,.feature-visual,.community-card,.inner-hero,.inner-panel');
  if('IntersectionObserver'in window&&!matchMedia('(prefers-reduced-motion: reduce)').matches){reveal.forEach(el=>el.classList.add('reveal'));const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('revealed');io.unobserve(e.target)}}),{threshold:.12});reveal.forEach(el=>io.observe(el))}
- const portalSearch=$('#portal-search'), portalCards=$('.portal'), feedback=$('#portal-results');
+ const portalSearch=$('#portal-search'), portalCards=$$('.portal'), feedback=$('#portal-results');
  function filterPortals(){if(!portalSearch)return;const query=portalSearch.value.trim().toLocaleLowerCase();let visible=0;portalCards.forEach(card=>{const match=!query||card.textContent.toLocaleLowerCase().includes(query);card.hidden=!match;if(match)visible++});if(feedback){let message;if(lang==='fa')message=query?(visible?String(visible)+' دروازه پیدا شد.':'نتیجه‌ای پیدا نشد؛ عبارت دیگری امتحان کن.'):'بین دروازه‌های WorldForge جست‌وجو کن.';else message=query?(visible?String(visible)+' portal(s) found.':'No matches. Try another search.'):'Search across WorldForge portals.';feedback.textContent=message}}
  function updateSearchPlaceholder(){if(portalSearch)portalSearch.placeholder=lang==='fa'?portalSearch.dataset.placeholderFa:portalSearch.dataset.placeholderEn}
  portalSearch?.addEventListener('input',filterPortals);
