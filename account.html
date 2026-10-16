@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#090d1c"><meta name="description" content="حساب WORLDFORGE؛ ورود و ساخت حساب کاربری.">
+<title>حساب کاربری — WORLDFORGE</title>
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="account.css">
+</head>
+<body>
+<a class="skip" href="#accountPanel">رفتن به فرم حساب</a>
+<header class="bar"><a class="brand" href="index.html"><span class="mark">WF</span><span>WORLD<strong>FORGE</strong><small>CRAFT YOUR NEXT ADVENTURE</small></span></a><a class="back" href="index.html">بازگشت به سایت ↗</a></header>
+<main class="layout">
+<section class="intro"><span class="kicker"><i></i> YOUR ADVENTURE STARTS HERE</span><h1>جهان خودت را<br><em>بساز.</em></h1><p>برای ادامه‌ی ماجراجویی در دنیای WORLDFORGE آماده شو.</p><div class="stats"><span><b>01</b> یک حساب برای دنیای تو</span><span><b>02</b> پیشرفت‌ها و علاقه‌مندی‌ها</span><span><b>03</b> تجربه‌ای یکپارچه</span></div><div class="orb orb-a"></div><div class="orb orb-b"></div></section>
+<section class="panel" id="accountPanel" aria-labelledby="formTitle">
+<div class="panel-top"><span class="secure">✦ WORLDFORGE ID</span><button id="themeToggle" class="theme" type="button" aria-label="تغییر پوسته" title="تغییر پوسته">☾</button></div>
+<div class="tabs" role="tablist" aria-label="نوع فرم"><button class="tab active" id="loginTab" type="button" role="tab" aria-selected="true" aria-controls="loginForm">ورود</button><button class="tab" id="signupTab" type="button" role="tab" aria-selected="false" aria-controls="signupForm">ساخت حساب</button></div>
+<h2 id="formTitle">خوش برگشتی!</h2><p class="sub" id="formSubtitle">برای ادامه وارد حساب خودت شو.</p>
+<form id="loginForm" novalidate>
+<label for="loginEmail">ایمیل</label><input id="loginEmail" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+<label for="loginPassword">رمز عبور</label><div class="password"><input id="loginPassword" name="password" type="password" autocomplete="current-password" minlength="8" placeholder="حداقل ۸ نویسه" required><button type="button" class="reveal" data-target="loginPassword" aria-label="نمایش رمز عبور">◉</button></div>
+<div class="options"><label class="check"><input type="checkbox" id="remember"> <span>یادم بماند</span></label><button class="text-btn" type="button" id="forgotBtn">فراموشی رمز؟</button></div>
+<button class="primary" type="submit">ورود به حساب <span>←</span></button>
+</form>
+<form id="signupForm" hidden novalidate>
+<label for="fullName">نام نمایشی</label><input id="fullName" name="name" autocomplete="nickname" maxlength="32" placeholder="نامی که در سایت دیده می‌شود" required>
+<label for="signupEmail">ایمیل</label><input id="signupEmail" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+<label for="signupPassword">رمز عبور</label><div class="password"><input id="signupPassword" name="password" type="password" autocomplete="new-password" minlength="8" placeholder="حداقل ۸ نویسه" required><button type="button" class="reveal" data-target="signupPassword" aria-label="نمایش رمز عبور">◉</button></div>
+<label for="confirmPassword">تکرار رمز عبور</label><input id="confirmPassword" type="password" autocomplete="new-password" minlength="8" placeholder="رمز عبور را تکرار کن" required>
+<label class="check consent"><input id="consent" type="checkbox" required><span>شرایط استفاده و حریم خصوصی را می‌پذیرم.</span></label>
+<button class="primary" type="submit">ساخت حساب <span>←</span></button>
+</form>
+<div class="notice" id="notice" role="status" aria-live="polite">🔒 این نسخه نمایشی است؛ اطلاعاتی ارسال یا ذخیره نمی‌شود.</div>
+<div class="divider"><span>یا ادامه بده با</span></div><button type="button" class="guest" id="guestBtn">گشت‌وگذار بدون حساب <span>↗</span></button>
+<p class="legal">برای امنیت تو، این صفحه رمز یا کد تأیید را ذخیره نمی‌کند. ورود واقعی پس از اتصال سرویس امن سمت سرور فعال می‌شود.</p>
+</section>
+</main>
+<nav class="dock" aria-label="ناوبری سریع"><a href="index.html" aria-label="خانه"><span>⌂</span><small>خانه</small></a><a href="mods.html" aria-label="مودها"><span>▦</span><small>مودها</small></a><a href="servers.html" aria-label="سرورها"><span>◇</span><small>سرورها</small></a><a href="gallery.html" aria-label="گالری"><span>▧</span><small>گالری</small></a><a class="selected" href="account.html" aria-label="حساب کاربری" aria-current="page"><span>♙</span><small>حساب</small></a></nav>
+<script src="account.js" defer></script>
+</body></html>
