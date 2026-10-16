@@ -88,3 +88,22 @@ body.light .inner-panel{background:linear-gradient(140deg,#f7faef,#e3ebde)}
 @media(max-width:760px){.hero{padding-block:50px 58px}.hero-art{border-radius:22px;box-shadow:0 24px 55px #0005,0 0 0 5px #ffffff03}.portal-art{height:100%}.portal-content{padding:18px 16px}.feature-layout{padding-block:65px}.community-card{box-shadow:0 20px 45px #0002}.inner-panel{box-shadow:0 20px 45px #0002}}
 @media(hover:none){.portal:hover,.button:hover{transform:none}.portal:hover{box-shadow:0 12px 35px #0002}}
 @media(prefers-reduced-motion:reduce){.hero-copy,.sun,.feature-core{animation:none!important}.reveal{filter:none;opacity:1;transform:none}}
+
+/* Stage 1: cinematic polish + accessible discovery search */
+.portal-search{display:grid;grid-template-columns:minmax(0,1fr);gap:8px;max-width:560px;margin:-12px 0 28px auto;padding:15px 17px;border:1px solid #d8edc827;border-radius:16px;background:linear-gradient(135deg,#1b2b20d9,#111a14d9);box-shadow:0 16px 42px #0002,inset 0 1px #ffffff09}
+.portal-search label{font-size:12px;font-weight:800;color:#dce9d3}
+.portal-search-control{display:flex;align-items:center;gap:10px;min-height:46px;padding:0 12px;border:1px solid #ffffff1d;border-radius:11px;background:#08100b75}
+.portal-search-control>span{font-size:24px;color:var(--green);line-height:1}
+.portal-search-control input{width:100%;min-width:0;border:0;outline:0;background:transparent;color:var(--text);font:500 13px var(--sans)}
+.portal-search-control input::placeholder{color:#829180}
+.portal-search-control kbd{display:grid;place-items:center;width:25px;height:25px;border:1px solid #ffffff20;border-radius:7px;color:#a9b8a3;font-size:14px}
+.search-feedback{min-height:1.5em;margin:0;color:var(--muted);font-size:11px}
+.portal[hidden]{display:none!important}
+.portal-search:focus-within{border-color:#b8e58a75;box-shadow:0 0 0 3px #b8e58a0b,0 16px 42px #0002}
+body.light .portal-search{background:linear-gradient(135deg,#f8faeff0,#e1eadbeF);border-color:#4e794b25}
+body.light .portal-search label{color:#263a27}
+body.light .portal-search-control{background:#ffffffb8;border-color:#263a2720}
+body.light .portal-search-control input{color:#1a291b}
+body.light .portal-search-control input::placeholder{color:#657761}
+@media(max-width:760px){.portal-search{margin:0 0 22px;width:100%;padding:13px}.portal-search-control{min-height:44px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.ticker-track{animation:none}.floating-cube{animation:none}}
