@@ -107,3 +107,43 @@ body.light .portal-search-control input{color:#1a291b}
 body.light .portal-search-control input::placeholder{color:#657761}
 @media(max-width:760px){.portal-search{margin:0 0 22px;width:100%;padding:13px}.portal-search-control{min-height:44px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.ticker-track{animation:none}.floating-cube{animation:none}}
+
+/* Stage 2: practical client-side tools; data clearly labeled as demos */
+.tool-module{margin:28px 0 8px;padding:clamp(16px,3vw,28px);border:1px solid var(--line);border-radius:18px;background:linear-gradient(145deg,#1b2a1fd9,#111a14e8);box-shadow:0 20px 55px #0002}
+body.light .tool-module{background:linear-gradient(145deg,#f6f8f0,#e9eee4);border-color:#243b241c}
+.tool-head{margin-bottom:18px}.tool-head h3{margin:0 0 5px;font-size:clamp(18px,2.5vw,24px)}.tool-head p{margin:0;color:var(--muted);font-size:13px;max-width:780px}
+.tool-controls{display:grid;grid-template-columns:minmax(0,1fr) minmax(160px,.55fr);gap:10px;margin:18px 0}
+.tool-controls input,.tool-controls select,.idea-form input,.idea-form select{width:100%;min-width:0;min-height:44px;border:1px solid var(--line);border-radius:10px;background:#09110c9c;color:var(--text);padding:10px 12px;font:inherit;font-size:13px}
+body.light .tool-controls input,body.light .tool-controls select,body.light .idea-form input,body.light .idea-form select{background:#ffffff;color:#19291a;border-color:#243b2420}
+.tool-controls input:focus-visible,.tool-controls select:focus-visible,.idea-form input:focus-visible,.idea-form select:focus-visible{outline:2px solid var(--green);outline-offset:2px}
+.tool-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:14px}
+.tool-card{min-width:0;padding:17px;border:1px solid var(--line);border-radius:14px;background:#ffffff04;overflow:hidden}
+.tool-card h4{margin:5px 0 7px;font-size:16px}.tool-card p{margin:0 0 10px;color:var(--muted);font-size:12px}.tool-card small{color:var(--muted);font-size:11px}
+.tool-symbol{display:grid;place-items:center;width:42px;height:42px;border:1px solid #a8d87d35;border-radius:12px;background:#a8d87d0c;color:var(--green);font-size:22px}
+.demo-tag{display:inline-block;margin-top:8px;padding:3px 8px;border-radius:999px;background:#a8d87d12;color:var(--green);font-size:10px}
+.tool-status{min-height:1.5em;color:var(--muted);font-size:12px;margin:14px 0 0}
+.filter-chips{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0}.filter-chip{padding:8px 13px;border:1px solid var(--line);border-radius:999px;background:transparent;color:var(--text);cursor:pointer;font:inherit;font-size:12px}.filter-chip.active{border-color:#a8d87d85;background:#a8d87d18;color:var(--green)}
+.voxel-scene{position:relative;height:140px;overflow:hidden;border-radius:10px;background:linear-gradient(#182a3a 0 54%,#304b35 54% 70%,#203423 70%);isolation:isolate}
+.voxel-scene:before,.voxel-scene:after,.voxel-scene span,.voxel-scene i,.voxel-scene b{content:"";position:absolute;display:block;image-rendering:pixelated}
+.scene-castle:before{width:46%;height:55%;bottom:16%;left:27%;background:repeating-linear-gradient(0deg,#69726c 0 13px,#505a54 13px 15px);clip-path:polygon(15% 0,35% 0,35% 15%,65% 15%,65% 0,85% 0,100% 100%,0 100%)}
+.scene-castle:after{width:20%;height:73%;bottom:16%;left:40%;background:repeating-linear-gradient(0deg,#838c80 0 12px,#5e6a5e 12px 14px);clip-path:polygon(0 15%,20% 15%,20% 0,80% 0,80% 15%,100% 15%,100% 100%,0 100%)}
+.scene-castle span{width:16%;height:30%;bottom:16%;left:13%;background:#657367;clip-path:polygon(0 20%,30% 20%,30% 0,70% 0,70% 20%,100% 20%,100% 100%,0 100%)}
+.scene-modern{background:linear-gradient(#9bb7c2 0 58%,#617e52 58% 72%,#32452e 72%)}
+.scene-modern:before{width:56%;height:56%;bottom:16%;left:22%;background:linear-gradient(90deg,#d6d5c3 0 48%,#293e3a 48% 53%,#a5b9b1 53%);clip-path:polygon(0 20%,30% 20%,30% 0,100% 0,100% 100%,0 100%)}
+.scene-modern:after{width:60%;height:12%;bottom:68%;left:20%;background:#263e37;transform:skewY(-12deg)}
+.scene-nature{background:linear-gradient(#9ebdc6 0 50%,#476f49 50% 65%,#233b2b 65%)}
+.scene-nature:before{width:100%;height:60%;bottom:0;background:linear-gradient(135deg,transparent 0 25%,#73915b 25% 44%,transparent 44%),linear-gradient(225deg,transparent 0 26%,#3c6343 26% 45%,transparent 45%)}
+.scene-nature:after{width:28%;height:22%;bottom:15%;left:37%;background:#4c91a3;clip-path:polygon(20% 0,100% 0,80% 100%,0 100%)}
+.scene-castle i,.scene-modern i,.scene-nature i{width:8px;height:8px;top:16%;left:18%;background:#f4e9b7;box-shadow:0 0 20px #f4e9b755}
+.gallery-concept[hidden]{display:none}
+.recipe-result{display:grid;grid-template-columns:1fr 1.2fr;gap:16px;align-items:center;border:1px solid var(--line);border-radius:14px;padding:16px}
+.recipe-title{grid-column:1/-1;display:flex;justify-content:space-between;gap:10px;align-items:center}.recipe-title h4{margin:0}.recipe-title span{font-size:12px;color:var(--green)}
+.recipe-pattern{display:grid;gap:4px;justify-content:center}.recipe-row{display:flex;gap:4px;justify-content:center}.recipe-cell{display:grid;place-items:center;width:38px;height:38px;border:1px solid var(--line);border-radius:7px;background:#a8d87d0a;font-size:19px}
+.recipe-ingredients{padding-inline-start:20px;margin:0;font-size:12px}.recipe-ingredients li{display:flex;justify-content:space-between;gap:10px;padding:4px 0;color:var(--muted)}
+.recipe-result>small{grid-column:1/-1;color:var(--muted)}
+.quantity-label{align-self:center;font-size:12px;color:var(--muted)}
+.idea-form{display:grid;grid-template-columns:1fr 1fr;gap:9px 12px;align-items:center;margin:18px 0}.idea-form label{font-size:12px;color:var(--muted)}.idea-form button{grid-column:1/-1;justify-self:start}
+.readiness-list{padding-inline-start:20px;display:grid;gap:10px;margin:20px 0}.readiness-list li{font-size:13px}
+.roadmap{display:grid;gap:12px;padding-inline-start:22px}.roadmap li{padding:14px;border:1px solid var(--line);border-radius:12px}.roadmap li b{color:var(--green)}.roadmap li p{margin:5px 0 0;color:var(--muted);font-size:13px}
+@media(max-width:760px){.tool-grid{grid-template-columns:1fr}.tool-controls{grid-template-columns:1fr}.recipe-result{grid-template-columns:1fr}.recipe-title{grid-column:1}.recipe-result>small{grid-column:1}.idea-form{grid-template-columns:1fr}.idea-form button{grid-column:1}.voxel-scene{height:165px}}
+@media(prefers-reduced-motion:reduce){.tool-card,.filter-chip{transition:none!important;animation:none!important}}
