@@ -27,3 +27,11 @@ These require an actual browser session and have **not** been claimed as passed.
 ## Release gates
 - Do not publish or merge until automated checks and manual browser checks are complete.
 - Live server status, accounts/authentication, checkout, community posting, and authoritative recipe/mod data require trusted backends or reviewed datasets; UI previews must not be presented as live functionality.
+
+
+## Visual redesign follow-up (2026-10-16)
+- [x] Added a cinematic multiplayer-network section with three illustrated mode cards and navigation to existing pages.
+- [x] Refreshed the global palette and hero treatment toward a dark, high-contrast Minecraft server-network aesthetic.
+- [x] Clearly labeled server/live status as not connected; no fabricated player counts or live uptime.
+- [ ] Manual browser visual checks at mobile and desktop sizes remain required before release.
+- [ ] Verify contrast, keyboard focus, reduced-motion behavior, and all routes on the deployed preview.
