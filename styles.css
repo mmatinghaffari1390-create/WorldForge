@@ -216,3 +216,33 @@ body:before{background:radial-gradient(ellipse at 50% -10%,#27465b70,transparent
 @media(max-width:850px){.hero{padding-top:48px;min-height:0}.hero-art{min-height:350px}.mode-grid{grid-template-columns:1fr 1fr}.mode-card:last-child{grid-column:1/-1}.network-heading{align-items:start;flex-direction:column}.network-heading .button{align-self:start}}
 @media(max-width:560px){.shell{width:min(100% - 30px,1200px)}.hero{padding-top:32px;padding-bottom:36px}.hero h1{font-size:clamp(43px,12vw,62px);letter-spacing:-1px}.hero-art{min-height:270px}.network-hub{padding-top:18px}.network-topline{align-items:flex-start;flex-direction:column;gap:5px}.mode-grid{grid-template-columns:1fr}.mode-card:last-child{grid-column:auto}.mode-art{height:180px}.network-footer{align-items:flex-start;flex-direction:column}.network-footer-links{flex-wrap:wrap;gap:12px 20px}.network-heading p{font-size:13px}.ticker{margin-bottom:20px}}
 @media(prefers-reduced-motion:reduce){.floating-cube,.mode-card{animation:none!important;transition:none!important}}
+
+/* Unified subpage treatment: network-console panels */
+.inner-page{padding-top:58px}
+.inner-hero{position:relative;overflow:hidden;padding:30px 28px 34px;border:1px solid #ffffff1b;border-radius:14px;background:radial-gradient(ellipse at 84% 10%,#456a7b40,transparent 42%),linear-gradient(115deg,#101b25,#12232b 58%,#0e171f);box-shadow:0 26px 75px #0004}
+.inner-hero:after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(115deg,transparent 48%,#b6f36b06 48.2%,transparent 48.5%),linear-gradient(0deg,#ffffff04 1px,transparent 1px);background-size:auto,100% 38px}
+.inner-hero h1{font-size:clamp(34px,4.5vw,56px);line-height:1.2;letter-spacing:-1.2px}
+.inner-hero p{max-width:690px;color:#b7c4ce}
+.inner-glyph{border:1px solid #ffffff25;background:linear-gradient(145deg,#2a4551,#162831);box-shadow:0 12px 32px #0004}
+.inner-panel{margin-top:18px;border:1px solid #ffffff1b;border-radius:14px;background:radial-gradient(ellipse at 100% 0%,#2a526020,transparent 42%),linear-gradient(145deg,#111e28,#0c151d);box-shadow:0 24px 65px #0003}
+.inner-panel-top{border-bottom:1px solid #ffffff16;padding-bottom:14px}
+.inner-panel h2,.inner-panel h3{color:#f1f5f7}
+.tool-module{background:linear-gradient(145deg,#111e28,#0b151d);border:1px solid #ffffff1a;color:#f4f6f8;box-shadow:0 18px 55px #0003}
+.tool-head p,.tool-card p,.tool-card small,.tool-card li{color:#a6b5c1}
+.tool-card{background:linear-gradient(145deg,#172733,#101a23);border-color:#ffffff19;border-radius:12px;box-shadow:inset 0 1px #ffffff06}
+.tool-card h4{color:#f4f6f8}
+.tool-controls input,.tool-controls select,.idea-form input,.idea-form select{background:#081118;color:#f4f6f8;border-color:#ffffff22}
+.filter-chip{border-color:#ffffff22;background:#13222c;color:#c4d0d8}
+.filter-chip[aria-pressed=true],.filter-chip.active{background:#b6f36b;color:#111a12;border-color:#b6f36b}
+.demo-tag{background:#243c2b;color:#c8f6a1;border:1px solid #b6f36b2b}
+.recipe-result,.voxel-scene{border-color:#ffffff1c;background:#0c151d}
+.readiness-list li,.roadmap li{border-color:#ffffff1c}
+.network-hub,.section,.community-strip{scroll-margin-top:110px}
+body.light .inner-hero{background:linear-gradient(120deg,#f4f7ee,#dce8dc);border-color:#263d2920}
+body.light .inner-hero p{color:#4e6051}
+body.light .inner-glyph{background:linear-gradient(145deg,#d8e9cb,#a8c69a)}
+body.light .inner-panel,body.light .tool-module{background:linear-gradient(145deg,#f7f9f2,#e8eee3);border-color:#263d291c;color:#18251a}
+body.light .inner-panel h2,body.light .inner-panel h3,body.light .tool-card h4{color:#18251a}
+body.light .tool-card{background:linear-gradient(145deg,#fff,#edf2e8);border-color:#263d291b}
+body.light .tool-controls input,body.light .tool-controls select,body.light .idea-form input,body.light .idea-form select{background:#fff;color:#18251a;border-color:#263d2925}
+@media(max-width:650px){.inner-page{padding-top:28px}.inner-hero{padding:22px 18px 24px}.inner-hero h1{font-size:clamp(31px,9vw,43px)}.inner-panel{padding:16px}.inner-glyph{width:62px;height:62px;font-size:30px;border-radius:15px}}
