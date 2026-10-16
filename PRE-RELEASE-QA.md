@@ -4,11 +4,11 @@ This checklist is for the safe redesign branch `redesign-v2`. It does not imply 
 
 ## Automated/source checks
 - [x] Parse `app.js` with JavaScript syntax validation (`new Function`): passed.
-- [x] Confirm all 10 HTML pages link to `styles.css` and `app.js`: passed.
+- [x] Confirm all redesigned HTML pages link to the shared styles/scripts: passed in the source audit; rerun after further edits.
 - [x] Confirm local navigation targets exist: passed (including `assets/favicon.svg`).
-- [x] Confirm no duplicate IDs in the 10 HTML pages: passed.
-- [x] Confirm the comparison base is `main` and `redesign-v2` is 20 commits ahead; no writes were made to `main`.
-- [x] Confirm the new changes did not delete repository files: passed; only existing files were updated and `PRE-RELEASE-QA.md` was added.
+- [x] Confirm no duplicate IDs in the audited HTML pages: passed in the source audit; rerun after further edits.
+- [x] At the initial audit, `redesign-v2` was 44 commits ahead of `main` and 0 behind; no writes were made to `main`. Recheck branch comparison before release.
+- [x] No files have been deleted in this work. The redesign branch contains added and modified files; review the compare view before release.
 - [x] Check CSS curly-brace balance: passed.
 
 ## Manual browser checks before publishing
@@ -33,5 +33,7 @@ These require an actual browser session and have **not** been claimed as passed.
 - [x] Added a cinematic multiplayer-network section with three illustrated mode cards and navigation to existing pages.
 - [x] Refreshed the global palette and hero treatment toward a dark, high-contrast Minecraft server-network aesthetic.
 - [x] Clearly labeled server/live status as not connected; no fabricated player counts or live uptime.
+- [x] Added shared module-page styling and filtering/empty-state logic for the redesigned module pages.
+- [x] Updated `sitemap.xml` to include account, leaderboard, shop, crafting, and docs pages.
 - [ ] Manual browser visual checks at mobile and desktop sizes remain required before release.
 - [ ] Verify contrast, keyboard focus, reduced-motion behavior, and all routes on the deployed preview.
