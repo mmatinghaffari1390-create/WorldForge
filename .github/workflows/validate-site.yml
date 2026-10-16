@@ -24,13 +24,14 @@ jobs:
           node --check app.js
           node --check enhancement.js
           node --check sw.js
+          node --check account.js
       - name: Validate manifest JSON
         run: node -e "JSON.parse(require('fs').readFileSync('manifest.webmanifest','utf8')); console.log('Manifest JSON valid')"
       - name: Validate page shell and local destinations
         run: |
           node <<'NODE'
           const fs = require('fs');
-          const pages = ['index.html','mods.html','servers.html','gallery.html','games.html','community.html','progress.html'];
+          const pages = ['index.html','mods.html','servers.html','gallery.html','games.html','community.html','progress.html','account.html'];
           const errors = [];
           for (const page of pages) {
             const html = fs.readFileSync(page, 'utf8');
@@ -39,7 +40,7 @@ jobs:
             if (!/<main\b/.test(html)) errors.push(page + ': missing main landmark');
             if (!/<title>[^<]+<\/title>/.test(html)) errors.push(page + ': missing title');
           }
-          const files = new Set([...pages, '404.html','styles.css','enhancement.css','app.js','enhancement.js','sw.js','manifest.webmanifest','sitemap.xml','robots.txt']);
+          const files = new Set([...pages, '404.html','styles.css','enhancement.css','account.css','app.js','account.js','enhancement.js','sw.js','manifest.webmanifest','sitemap.xml','robots.txt']);
           for (const page of pages) {
             const html = fs.readFileSync(page, 'utf8');
             for (const match of html.matchAll(/\bhref=["']([^"'#?]+)["']/g)) {
