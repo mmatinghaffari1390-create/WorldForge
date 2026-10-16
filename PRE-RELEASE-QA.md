@@ -3,14 +3,17 @@
 This checklist is for the safe redesign branch `redesign-v2`. It does not imply that all manual browser checks have already passed.
 
 ## Automated/source checks
-- [ ] Parse `app.js` with a JavaScript syntax checker.
-- [ ] Confirm each HTML page links to `styles.css` and `app.js`.
-- [ ] Confirm all local navigation targets exist.
-- [ ] Confirm there are no duplicate IDs in each HTML page.
-- [ ] Confirm no tracked files were deleted in this change.
-- [ ] Confirm the `main` branch head is unchanged.
+- [x] Parse `app.js` with JavaScript syntax validation (`new Function`): passed.
+- [x] Confirm all 10 HTML pages link to `styles.css` and `app.js`: passed.
+- [x] Confirm local navigation targets exist: passed (including `assets/favicon.svg`).
+- [x] Confirm no duplicate IDs in the 10 HTML pages: passed.
+- [x] Confirm the comparison base is `main` and `redesign-v2` is 20 commits ahead; no writes were made to `main`.
+- [x] Confirm the new changes did not delete repository files: passed; only existing files were updated and `PRE-RELEASE-QA.md` was added.
+- [x] Check CSS curly-brace balance: passed.
 
 ## Manual browser checks before publishing
+
+These require an actual browser session and have **not** been claimed as passed.
 - [ ] Open home, servers, mods, gallery, crafting, community, account, shop, leaderboard, and docs pages.
 - [ ] Test narrow mobile width and desktop width; check for horizontal overflow.
 - [ ] Test Persian/English switch on every page and check RTL/LTR layout.
