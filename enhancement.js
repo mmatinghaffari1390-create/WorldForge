@@ -99,6 +99,38 @@
 
   if (!document.querySelector('link[data-enhancement-css]')) { const css=document.createElement('link'); css.rel='stylesheet'; css.href='enhancement.css'; css.dataset.enhancementCss='true'; document.head.append(css); }
 
+
+  // Floating mobile dock inspired by the supplied navigation references.
+  if (!document.querySelector('.wf-mobile-dock')) {
+    const destinations = [
+      ['index.html#home','⌂','خانه','Home'],
+      ['servers.html','◇','سرورها','Servers'],
+      ['gallery.html','▧','گالری','Gallery'],
+      ['community.html','☏','جامعه','Community'],
+      ['account.html','♙','حساب','Account']
+    ];
+    const current = location.pathname.split('/').pop() || 'index.html';
+    const activeIndex = destinations.findIndex(d => d[0].split('#')[0] === current);
+    const dock = document.createElement('nav');
+    dock.className = 'wf-mobile-dock';
+    dock.setAttribute('aria-label','ناوبری سریع WORLDFORGE');
+    dock.innerHTML = '<span class="wf-dock-glow" aria-hidden="true"></span>' + destinations.map((d,i) =>
+      '<a class="wf-dock-item '+(i===activeIndex?'is-active':'')+'" href="'+d[0]+'" '+(i===activeIndex?'aria-current="page"':'')+' aria-label="'+d[2]+'" title="'+d[3]+'"><span class="wf-dock-icon" aria-hidden="true">'+d[1]+'</span><small>'+d[2]+'</small></a>'
+    ).join('');
+    document.body.append(dock);
+    const glow = dock.querySelector('.wf-dock-glow');
+    const moveGlow = item => {
+      if (!item || !glow) return;
+      const r = item.getBoundingClientRect(), p = dock.getBoundingClientRect();
+      glow.style.left = (r.left - p.left + r.width/2) + 'px';
+      glow.style.top = (r.top - p.top + r.height/2) + 'px';
+    };
+    moveGlow(dock.querySelector('.is-active'));
+    dock.querySelectorAll('.wf-dock-item').forEach(item => item.addEventListener('pointerenter',()=>moveGlow(item)));
+    dock.addEventListener('pointerleave',()=>moveGlow(dock.querySelector('.is-active')));
+    window.addEventListener('resize',()=>moveGlow(dock.querySelector('.is-active')),{passive:true});
+  }
+
   // Inject install metadata without requiring every HTML page to duplicate boilerplate.
   if (!document.querySelector('link[rel="manifest"]')) {
     const manifest=document.createElement('link'); manifest.rel='manifest'; manifest.href='manifest.webmanifest'; document.head.append(manifest);
