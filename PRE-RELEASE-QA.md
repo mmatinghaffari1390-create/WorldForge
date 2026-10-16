@@ -3,10 +3,10 @@
 This checklist is for the safe redesign branch `redesign-v2`. It does not imply that all manual browser checks have already passed.
 
 ## Automated/source checks
-- [x] Parse `app.js` with JavaScript syntax validation (`new Function`): passed.
-- [x] Confirm all redesigned HTML pages link to the shared styles/scripts: passed in the source audit; rerun after further edits.
-- [x] Confirm local navigation targets exist: passed (including `assets/favicon.svg`).
-- [x] Confirm no duplicate IDs in the audited HTML pages: passed in the source audit; rerun after further edits.
+- [x] Parse `app.js` and `module-pages.js` with JavaScript syntax validation (`new Function`): passed.
+- [x] Confirm all 12 HTML pages link to the shared styles/scripts: passed in the source audit.
+- [x] Confirm local HTML/CSS/JS and favicon targets exist: passed, including `forge-theme.css`, `enhancement.js`, and `assets/favicon.svg`.
+- [x] Confirm no duplicate IDs across the 12 HTML pages: passed.
 - [x] At the initial audit, `redesign-v2` was 44 commits ahead of `main` and 0 behind; no writes were made to `main`. Recheck branch comparison before release.
 - [x] No files have been deleted in this work. The redesign branch contains added and modified files; review the compare view before release.
 - [x] Check CSS curly-brace balance: passed.
@@ -34,6 +34,6 @@ These require an actual browser session and have **not** been claimed as passed.
 - [x] Refreshed the global palette and hero treatment toward a dark, high-contrast Minecraft server-network aesthetic.
 - [x] Clearly labeled server/live status as not connected; no fabricated player counts or live uptime.
 - [x] Added shared module-page styling and filtering/empty-state logic for the redesigned module pages.
-- [x] Updated `sitemap.xml` to include account, leaderboard, shop, crafting, and docs pages.
+- [x] Updated `sitemap.xml` to include account, leaderboard, shop, crafting, and docs pages; all 12 HTML pages are represented.
 - [ ] Manual browser visual checks at mobile and desktop sizes remain required before release.
 - [ ] Verify contrast, keyboard focus, reduced-motion behavior, and all routes on the deployed preview.
