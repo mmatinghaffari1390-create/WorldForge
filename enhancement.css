@@ -5,3 +5,24 @@
 
 .skip-to-content{position:fixed;z-index:1500;top:10px;left:10px;transform:translateY(-160%);padding:12px 16px;border-radius:10px;background:#b8ffe9;color:#07110f;font-weight:800;box-shadow:0 8px 30px #0008;transition:transform .15s}
 .skip-to-content:focus{transform:translateY(0);outline:3px solid #6ac9ff;outline-offset:3px}
+
+
+/* Floating neon dock inspired by the supplied mobile UI references */
+.wf-mobile-dock{display:none}
+@media(max-width:760px){
+ body{padding-bottom:112px}
+ .wf-mobile-dock{position:fixed;z-index:80;left:50%;bottom:max(13px,env(safe-area-inset-bottom));transform:translateX(-50%);width:min(440px,calc(100% - 26px));min-height:68px;display:flex;align-items:center;justify-content:space-around;gap:2px;padding:8px 7px;border:1px solid rgba(224,210,255,.17);border-radius:23px;background:linear-gradient(120deg,rgba(19,15,32,.91),rgba(12,18,31,.94));box-shadow:0 18px 48px rgba(0,0,0,.42),inset 0 1px rgba(255,255,255,.06);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);isolation:isolate}
+ .wf-mobile-dock:before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:linear-gradient(105deg,transparent,rgba(178,130,255,.05),transparent)}
+ .wf-dock-glow{position:absolute;left:50%;top:50%;width:43px;height:43px;transform:translate(-50%,-50%);border-radius:50%;pointer-events:none;z-index:-1;background:radial-gradient(circle,rgba(255,118,104,.95) 0%,rgba(255,118,104,.55) 40%,rgba(255,118,104,.14) 68%,transparent 74%);box-shadow:0 0 24px rgba(255,107,104,.4);transition:left .36s cubic-bezier(.2,.8,.2,1),top .36s cubic-bezier(.2,.8,.2,1);animation:wfDockPulse 3s ease-in-out infinite}
+ .wf-dock-item{position:relative;flex:1;min-width:0;min-height:51px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;border-radius:16px;color:#85859c;text-decoration:none;transition:color .2s,transform .2s;outline-offset:3px}
+ .wf-dock-item:hover,.wf-dock-item:focus-visible{color:#fff;transform:translateY(-2px)}
+ .wf-dock-icon{font-family:Arial,sans-serif;font-size:23px;line-height:1.1;color:inherit;text-shadow:0 0 12px transparent;transition:color .2s,text-shadow .2s}
+ .wf-dock-item small{font:500 9px/1.3 var(--body, sans-serif);white-space:nowrap;color:inherit}
+ .wf-dock-item.is-active{color:#fff}
+ .wf-dock-item.is-active .wf-dock-icon{text-shadow:0 0 14px rgba(255,151,126,.85)}
+ .wf-dock-item.is-active small{color:#ffcec4}
+ .wf-mobile-dock a:focus-visible{outline:2px solid #b69cff}
+ .back-to-top,.quick-nav-trigger{z-index:40}
+}
+@keyframes wfDockPulse{0%,100%{opacity:.82;filter:saturate(.9);scale:.96}50%{opacity:1;filter:saturate(1.2);scale:1.04}}
+@media(prefers-reduced-motion:reduce){.wf-dock-glow{animation:none;transition:none}.wf-dock-item{transition:none}}
